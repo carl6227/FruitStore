@@ -50,13 +50,15 @@ $mystore->login();
       </div>
 
       <div class="signup hide">
+        <form method="POST">
         <h2>SIGN UP</h2>
         <div class="inputbox">
           <input type="text" name="fullname" placeholder="  FULLNAME">
           <input type="text" name="email" placeholder="  EMAIL">
           <input type="password" name="password" placeholder="  PASSWORD">
         </div>
-        <button>SIGN UP</button>
+        <button type="submit" name="signup" >SIGN UP</button>
+        </form>
       </div>
 
     </div>

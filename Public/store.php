@@ -1,9 +1,9 @@
 <?php
     class myStore
     {
-        private $server = "mysql:host=remotemysql.com;dbname=CkL319SEzI";
-        private $user = "CkL319SEzI";
-        private $password = "RCP6Hu0w1X";
+        private $server = "mysql:host=remotemysql.com;dbname=nTXgp5BXe0";
+        private $user = "nTXgp5BXe0";
+        private $password = "RQwfabtfeC";
         private $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -49,7 +49,7 @@
 
         public function login(){
            if(isset($_POST['submit'])){
-               echo"ok";
+               
                 $username=$_POST['username'];
                 $password=$_POST['password'];
                 $connection =$this->openConnection();
@@ -59,16 +59,25 @@
                 $total= $statement->rowCount();
 
                 if($total>0){
-                    echo "welcome ".$user['name'];
+                   header("location:index.php");
                 }else{
-                    $username;
-                   // echo "welcome ".$user['username'];
-                    echo "Login failed";
+                    echo "<script>alert'Login failed'</script>";
                 }
            }
           
-        }
-
+        }//end of log in
+        public function signup(){
+            if(isset($_POST['signup'])){
+                 $username=$_POST['fullname'];
+                 $password=$_POST['password'];
+                 $email=$_POST['email'];
+                 $connection =$this->openConnection();
+                 mysqli_query("INSERT INTO  users(username,email,password) VALUES ($username,$email,$password)");
+                
+            }
+           
+         }
+ 
     }
     $mystore = new myStore();
 

@@ -49,10 +49,10 @@
                 <button data-toggle="dropdown" class="btn btn-light dropdown-toggle" style="font-size:10px"></button>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-share"></i> Share</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-print"></i> Print</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item text-danger"><i class="fa fa-trash"></i> Delete</a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-sign-out" ></i></i> logout</a>
+                
+                  
+        
                 </div>
             </div>
         </div>

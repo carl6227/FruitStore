@@ -5,7 +5,7 @@ body {
 
 .container {
     /*border:1px solid white;*/
-    width: 600px;
+    width: 700px;
     height: 350px;
     position: absolute;
     top: 50%;
@@ -17,7 +17,7 @@ body {
 .backbox {
     background-color: #404040;
     width: 100%;
-    height: 100%;
+    height: 80%;
     position: absolute;
     transform: translate(0, -50%);
     top: 50%;
@@ -28,7 +28,7 @@ body {
     background-color: white;
     border-radius: 20px;
     height: 100%;
-    width: 60%;
+    width: 50%;
     z-index: 10;
     position: absolute;
     right: 0;
@@ -38,7 +38,7 @@ body {
 }
 
 .moving {
-    right: 60%;
+    right: 45%;
 }
 
 .loginMsg,
@@ -63,7 +63,7 @@ body {
 .textcontent {
     color: white;
     margin-top: 65px;
-    margin-left: 10%;
+    margin-left: 12%;
 }
 
 .loginMsg button,
