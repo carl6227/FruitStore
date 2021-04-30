@@ -1,5 +1,7 @@
 <?php
     include_once("header.php");
+   
+  
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
         <!-- <i class='fas fa-seedling' style='font-size:30px;color:green'></i>
@@ -49,9 +51,10 @@
                 <button data-toggle="dropdown" class="btn btn-light dropdown-toggle" style="font-size:10px"></button>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-sign-out" ></i></i> logout</a>
-                
-                  
+    
+                    <form  method="logout">
+                    <a  href="login.php"class="dropdown-item"><i class="fa fa-sign-out" ></i></i> logout</a>
+                    </form>
         
                 </div>
             </div>

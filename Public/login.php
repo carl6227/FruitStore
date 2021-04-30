@@ -1,8 +1,8 @@
 <?php 
+session_start();
 require_once('store.php');
 $mystore->login();
-
-
+$mystore->signup();
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +41,12 @@ $mystore->login();
       <div class="login">
         <h2>LOG IN</h2>
         <div class="inputbox">
+        <small class="text-danger"><?php echo isset($_SESSION['errorMsg'])?$_SESSION['errorMsg']:"";?></small>
           <input type="text" name="username" placeholder="  EMAIL">
           <input type="password" name="password" placeholder="  PASSWORD">
         </div>
         <p>FORGET PASSWORD?</p>
+       
         <button type="submit" name="submit">LOG IN</button>
     </form>
       </div>

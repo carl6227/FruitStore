@@ -48,6 +48,7 @@
         }//end of get users
 
         public function login(){
+            unset($_SESSION['errorMsg']);
            if(isset($_POST['submit'])){
                
                 $username=$_POST['username'];
@@ -60,8 +61,11 @@
 
                 if($total>0){
                    header("location:index.php");
+                   unset($_SESSION['errorMsg']);
                 }else{
-                    echo "<script>alert'Login failed'</script>";
+                   
+                    $_SESSION['errorMsg']="* username or password is invalid";
+                    // $errorMsg=
                 }
            }
           
@@ -72,12 +76,17 @@
                  $password=$_POST['password'];
                  $email=$_POST['email'];
                  $connection =$this->openConnection();
-                 mysqli_query("INSERT INTO  users(username,email,password) VALUES ($username,$email,$password)");
-                
+                 $statement=$connection->prepare("INSERT INTO  users(username,email,password) VALUES (?,?,?)");
+                 $statement->execute([$username,$email,$password]);
             }
-           
          }
- 
+
+         public function logout(){
+            if(isset($_POST['logout'])){
+                unset($_SESSION['errorMsg']);
+                header('login.php');
+            }
+         }
     }
     $mystore = new myStore();
 
