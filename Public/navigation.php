@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto navbar-center">
                 <li class="nav-item active">
-                    <a class="nav-link mx-auto" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link mx-auto" href="home.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -34,13 +34,14 @@
                 </li>
             </ul>
         </div>
+        <a href="cart.php">
         <div id="ex4" class="ca">
             <span class="p1 fa-stack fa-2x has-badge" data-count="15">
                 <i id="cart" class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse " data-count="4b"
                     style="color:black;font-size:20px;"></i>
             </span>
         </div>
-
+        </a>
         <div class="bs-example mr-5">
             <div class="btn-group">
                 <button class="btn btn-light" style="height:24px; margin-top:-7px">

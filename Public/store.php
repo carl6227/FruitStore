@@ -1,5 +1,6 @@
 <?php
 
+$_SESSION['username']="";
     class myStore
     {
         private $server = "mysql:host=remotemysql.com;dbname=nTXgp5BXe0";
@@ -53,7 +54,7 @@
        
        
         public function login(){
-            session_start();
+        
            if(isset($_POST['submit'])){
                 $username=$_POST['username'];
                 $password=$_POST['password'];
@@ -62,11 +63,12 @@
                 $statement->execute([$username,$password]);
                 $user= $statement->fetch();
                 $total= $statement->rowCount();
-                $_SESSION['userID']=$user['id'];
+                $_SESSION['username']=$user['username'];
 
                 if($total>0){
-                   unset($_SESSION['errorMsg']);
-                   header('index.php');
+                //    header('home.php');
+                //    unset($_SESSION['errorMsg']);
+                echo  $_SESSION['username'];
                 
                 }else{
                     $_SESSION['errorMsg']="* username or password is invalid";
@@ -91,10 +93,10 @@
                  $productname=$_POST['productname'];
                  $price=$_POST['price'];
                  $quantity=0;
-                 $userID=$_SESSION['userID'];
+                 $username=$_SESSION['username'];
                  $connection =$this->openConnection();
-                 $statement=$connection->prepare("INSERT INTO  cart(productname,userID,quantity,price,image) VALUES (?,?,?,?,?)");
-                 $statement->execute([$productname,$userID,$quantity,$price,$image]);
+                 $statement=$connection->prepare("INSERT INTO  cart(productname,username,quantity,price,image) VALUES (?,?,?,?,?)");
+                 $statement->execute([$productname,$username,$quantity,$price,$image]);
             }
          }
 

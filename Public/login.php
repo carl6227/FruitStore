@@ -1,5 +1,5 @@
 <?php 
-
+ session_start();
 require_once('store.php');
 $mystore->login();
 $mystore->signup();
@@ -31,7 +31,7 @@ $mystore->signup();
         <div class="textcontent">
           <p class="title">Have an account?</p>
           <p>Log in to see all your collection.</p>
-          <a href="index.php" id="switch2">LOG IN</a>
+          <a href="home.php" id="switch2">LOG IN</a>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ $mystore->signup();
         </div>
         <p>FORGET PASSWORD?</p>
        
-      <center>  <button  type="submit" name="submit">LOG IN</button> </center>
+     <button  class="login"type="submit" name="submit"> <a href="home.php">LOG IN</a></button> 
     </form>
       </div>
 
