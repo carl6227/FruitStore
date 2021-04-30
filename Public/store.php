@@ -1,9 +1,11 @@
 <?php
+
     class myStore
     {
         private $server = "mysql:host=remotemysql.com;dbname=nTXgp5BXe0";
         private $user = "nTXgp5BXe0";
         private $password = "RQwfabtfeC";
+        public $loggedin=2;
         private $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -15,6 +17,7 @@
         public function openConnection()
         {
             try {
+               
                 $this->connection= new PDO(
                     $this->server,
                     $this->user,
@@ -46,11 +49,12 @@
                 return 0;
             }
         }//end of get users
-
+       
+       
+       
         public function login(){
-            unset($_SESSION['errorMsg']);
+            session_start();
            if(isset($_POST['submit'])){
-               
                 $username=$_POST['username'];
                 $password=$_POST['password'];
                 $connection =$this->openConnection();
@@ -58,14 +62,14 @@
                 $statement->execute([$username,$password]);
                 $user= $statement->fetch();
                 $total= $statement->rowCount();
+                $_SESSION['userID']=$user['id'];
 
                 if($total>0){
-                   header("location:index.php");
                    unset($_SESSION['errorMsg']);
+                   header('index.php');
+                
                 }else{
-                   
                     $_SESSION['errorMsg']="* username or password is invalid";
-                    // $errorMsg=
                 }
            }
           
@@ -81,13 +85,29 @@
             }
          }
 
+         public function addtoCart(){
+            if(isset($_POST['addCart'])){
+                 $image=$_POST['image'];
+                 $productname=$_POST['productname'];
+                 $price=$_POST['price'];
+                 $quantity=0;
+                 $userID=$_SESSION['userID'];
+                 $connection =$this->openConnection();
+                 $statement=$connection->prepare("INSERT INTO  cart(productname,userID,quantity,price,image) VALUES (?,?,?,?,?)");
+                 $statement->execute([$productname,$userID,$quantity,$price,$image]);
+            }
+         }
+
          public function logout(){
             if(isset($_POST['logout'])){
-                unset($_SESSION['errorMsg']);
+                
+                session_destroy();
                 header('login.php');
             }
          }
+         
     }
     $mystore = new myStore();
-
+    
+    
 ?> 

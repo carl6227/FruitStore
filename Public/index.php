@@ -1,6 +1,7 @@
 <?php
-    include_once("header.php");
-    include_once("navigation.php");
+
+include_once("header.php");
+include_once("navigation.php");
 ?>
 
 
@@ -110,7 +111,7 @@
         <div class="container mt-5">
             <div class="row pb-5 mb-4">
                 <?php require_once('read.php')?>
-              
+                 
             </div>
         </div>
     </div>

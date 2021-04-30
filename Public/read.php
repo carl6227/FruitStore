@@ -1,5 +1,7 @@
 
 <?php
+require_once('store.php');
+$mystore->addtoCart();
 $servername = "remotemysql.com:3306";
 $username = "nTXgp5BXe0";
 $password = "RQwfabtfeC";
@@ -20,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
        
         echo '<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-        <!-- Card-->
+       
         <div class=" card  rounded shadow-sm border-1 border-success">
             <div  id="'.$row["categories"].'" class="col-sm-4 text-light ml-1 mt-1" style="boder-radius:50px">
                 <h5 >
@@ -43,10 +45,16 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                 </ul>
                 <div class="text-center">
-                    <button type="button" class="btn btn-success" style="border-radius: 50px;"><i
+                <form  method="post">
+                     <input type="hidden"name="image" value="'.$row["image"].'">
+                     <input type="hidden" name="productname" value="'.$row["name"].'">
+                     <input type="hidden" name="price" value="'.$row["price"].'">
+                    <button type="submit" name="addCart"class="btn btn-success" style="border-radius: 50px;"><i
                             class="fa fa-cart-plus" style="font-size:20px;color:whitesmoke"></i> Add to
                         Cart</button>
+                </form>
                 </div>
+               
             </div>
         </div>
     </div>';
