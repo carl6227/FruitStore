@@ -1,12 +1,12 @@
 <?php
 
-$_SESSION['username']="";
+
     class myStore
     {
         private $server = "mysql:host=remotemysql.com;dbname=nTXgp5BXe0";
         private $user = "nTXgp5BXe0";
         private $password = "RQwfabtfeC";
-        public $loggedin=2;
+        public $loggedin=0;
         private $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -55,7 +55,7 @@ $_SESSION['username']="";
        
         public function login(){
         
-           if(isset($_POST['submit'])){
+           if(isset($_POST['login'])){
                 $username=$_POST['username'];
                 $password=$_POST['password'];
                 $connection =$this->openConnection();
@@ -63,15 +63,14 @@ $_SESSION['username']="";
                 $statement->execute([$username,$password]);
                 $user= $statement->fetch();
                 $total= $statement->rowCount();
-                $_SESSION['username']=$user['username'];
-
                 if($total>0){
-                //    header('home.php');
-                //    unset($_SESSION['errorMsg']);
-                echo  $_SESSION['username'];
-                
+                $_SESSION['username']=$user['username'];
+                unset($_SESSION['errorMsg']);
+                header('location:home.php');
+              
                 }else{
-                    $_SESSION['errorMsg']="* username or password is invalid";
+                  
+                 $_SESSION['errorMsg']="* username or password is invalid";
                 }
            }
           
@@ -81,9 +80,10 @@ $_SESSION['username']="";
                  $username=$_POST['fullname'];
                  $password=$_POST['password'];
                  $email=$_POST['email'];
+                 $type=0;
                  $connection =$this->openConnection();
-                 $statement=$connection->prepare("INSERT INTO  users(username,email,password) VALUES (?,?,?)");
-                 $statement->execute([$username,$email,$password]);
+                 $statement=$connection->prepare("INSERT INTO  users(username,email,password,type) VALUES (?,?,?,?)");
+                 $statement->execute([$username,$email,$password,$type]);
             }
          }
 
@@ -92,17 +92,29 @@ $_SESSION['username']="";
                  $image=$_POST['image'];
                  $productname=$_POST['productname'];
                  $price=$_POST['price'];
-                 $quantity=0;
                  $username=$_SESSION['username'];
                  $connection =$this->openConnection();
                  $statement=$connection->prepare("INSERT INTO  cart(productname,username,quantity,price,image) VALUES (?,?,?,?,?)");
                  $statement->execute([$productname,$username,$quantity,$price,$image]);
             }
          }
+         
+         public function updateQuantity(){
+            if(isset($_POST['placeOrder'])){
+                 $orderedQuantity=$_POST['orderedQuantity'];
+                 $productname=$_POST['productname'];
+                 $connection =$this->openConnection();
+                 $statement=$connection->prepare("UPDATE  products SET qauntity=qauntity-? WHERE name=$productname");
+                 $statement->execute([$orderedQuantity]);
+                 echo "success";
+            }
+         }
+
+
 
          public function logout(){
             if(isset($_POST['logout'])){
-                
+                session_start();
                 session_destroy();
                 header('login.php');
             }
@@ -110,6 +122,8 @@ $_SESSION['username']="";
          
     }
     $mystore = new myStore();
+   
+  
     
     
 ?> 

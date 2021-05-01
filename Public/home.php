@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['username'];
+
 include_once("header.php");
 include_once("navigation.php");
 ?>

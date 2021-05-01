@@ -1,5 +1,7 @@
 <?php 
- session_start();
+session_start();
+ $_SESSION['username']="";
+ $_SESSION['quantity'];
 require_once('store.php');
 $mystore->login();
 $mystore->signup();
@@ -31,26 +33,25 @@ $mystore->signup();
         <div class="textcontent">
           <p class="title">Have an account?</p>
           <p>Log in to see all your collection.</p>
-          <a href="home.php" id="switch2">LOG IN</a>
+          <button id="switch2">LOG IN</button>
         </div>
       </div>
     </div>
     <!-- backbox -->
 
-    <div class="frontbox">
-    <form action="" method="POST">
-      <div class="login">
-        <h2>LOG IN</h2>
-        <div class="inputbox">
-        <small class="text-danger"><?php echo isset($_SESSION['errorMsg'])?$_SESSION['errorMsg']:"";?></small>
-          <input type="text" name="username" placeholder="  EMAIL">
-          <input type="password" name="password" placeholder="  PASSWORD">
-        </div>
-        <p>FORGET PASSWORD?</p>
-       
-     <button  class="login"type="submit" name="submit"> <a href="home.php">LOG IN</a></button> 
-    </form>
-      </div>
+  <div class="frontbox">
+        <form method="POST">
+          <div class="login">
+            <h2>LOG IN</h2>
+            <div class="inputbox">
+            <small class="text-danger"><?php echo isset($_SESSION['errorMsg'])?$_SESSION['errorMsg']:"";?></small>
+              <input type="text" name="username" placeholder="  EMAIL">
+              <input type="password" name="password" placeholder="  PASSWORD">
+            </div>
+            <p>FORGET PASSWORD?</p> 
+            <button  class="login" type="submit" name="login"> LOG IN</button> 
+        </form>
+    </div>
 
       <div class="signup hide">
         <form method="POST">

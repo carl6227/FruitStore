@@ -14,7 +14,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT product_id,name, price,qauntity,description,categories,image FROM storeManagement";
+$sql = "SELECT product_id,name, price,qauntity,description,categories,image FROM products";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
