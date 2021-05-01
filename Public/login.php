@@ -1,7 +1,6 @@
 <?php 
 session_start();
  $_SESSION['username']="";
- $_SESSION['quantity'];
 require_once('store.php');
 $mystore->login();
 $mystore->signup();

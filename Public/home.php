@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['username'])){
+    header('location:login.php');
+}
 include_once("header.php");
 include_once("navigation.php");
 ?>
