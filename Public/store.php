@@ -96,7 +96,7 @@
                  $connection =$this->openConnection();
                  $statement=$connection->prepare("INSERT INTO  cart(productname,username,price,image) VALUES (?,?,?,?)");
                  $statement->execute([$productname,$username,$price,$image]);
-                 echo "<script>alert'Added to cart sucessfully!'</script>";
+                 
             }
          }
          
@@ -109,21 +109,22 @@
                  $connection =$this->openConnection();
                  $statement=$connection->prepare("INSERT INTO  ordered_products(username,productName,quantity,total) VALUES (?,?,?,?)");
                  $statement->execute([$username,$productname,$orderedQuantity,$subtotal]);
-                 echo $productname;
             }
          }
 
         public function dispSubtotal(){
-        if(isset($_POST['placeOrder'])){
-            $username=$_SESSION['username'];    
-            $connection =$this->openConnection(); 
-            $statement=$connection->prepare("SELECT sum(total) as total FROM ordered_products WHERE username='$username'");
-            $subtotal=$statement->fetch();
-            echo $subtotal['total'];
+            if(isset($_POST['placeOrder'])){
+                $username=$_SESSION['username'];    
+                $connection =$this->openConnection(); 
+                $statement=$connection->prepare("SELECT sum(total) as total FROM ordered_products WHERE username='$username'");
+                $statement->execute();
+                $subtotal=$statement->fetch();
+                echo $subtotal['total'];
 
+            }
         }
-        }
-
+        
+       
          public function logout(){
             if(isset($_POST['logout'])){
                 session_start();
