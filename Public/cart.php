@@ -4,6 +4,7 @@ require_once('header.php');
 require_once('navigation.php');
 require_once('store.php');
 $mystore->addOrder();
+$mystore->dispSubtotal();
 ?>
 
 <div class="container-fluid">
@@ -12,7 +13,7 @@ $mystore->addOrder();
                 <div class="col-sm-3 jumbotron">
                         <div class="row">
                           <label for="exampleInputEmail1">Subtotal</label>
-                            <div class="col-sm "> <input type="number" id="subtotal" class="form-control" value="0" ></div>
+                            <div class="col-sm "> <input type="number" id="subtotal" class="form-control" value="<?php $_SESSION['subtotal']?>" ></div>
                         </div>
                         <br>
                         <div class="row">

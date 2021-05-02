@@ -110,16 +110,14 @@ include_once("navigation.php");
 </div>
 
 <hr class="mt-5">
-    
         <div class="container mt-5">
             <div class="row pb-5 mb-4">
                 <?php require_once('read.php')?>
-                 
             </div>
         </div>
     </div>
 </div>
-    <script src="../src/js/index.js"></script>
+   
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 
