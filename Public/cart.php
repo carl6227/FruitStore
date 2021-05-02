@@ -1,8 +1,9 @@
 <?php
-session_start();
+ session_start();
 require_once('header.php');
 require_once('navigation.php');
-
+require_once('store.php');
+$mystore->addOrder();
 ?>
 
 <div class="container-fluid">
@@ -46,21 +47,23 @@ require_once('navigation.php');
 $('.quantity').change( function() {
     total = $(this).val() * $(this).prev().val();
     $(this).next().children().text(total)
-   
-
+    $(this).prevUntil('form','input.subtotal').val(total);
+    
 });
 
 //formula for getting the total nga bayranan
  $('.placeOrder').click(function(){
- $(this).attr('disabled','disabled');
- $(this).removeClass('btn-success');
- $(this).addClass('btn-danger');
- $(this).text("Ordered");
+
  subtotal=parseInt($('#subtotal').val()); 
  shipping=parseInt($('#shipping').val());
  temp= parseInt($(this).parent().prev().children().text());
  $('#subtotal').val(subtotal+=temp);
  $('#total').val(subtotal+shipping);
+ console.log($(this).parent().prevUntil('form',"input.subtotal").val())
+//  $(this).attr('disabled','disabled');
+//  $(this).removeClass('btn-success');
+//  $(this).addClass('btn-danger');
+//  $(this).text("Ordered");
  });
 
 </script>

@@ -99,14 +99,17 @@
             }
          }
          
-         public function updateQuantity(){
+         public function addOrder(){
             if(isset($_POST['placeOrder'])){
                  $orderedQuantity=$_POST['orderedQuantity'];
                  $productname=$_POST['productname'];
+                 $username=$_SESSION['username'];
+                 $subtotal=intval($_POST['subtotal']);
                  $connection =$this->openConnection();
-                 $statement=$connection->prepare("UPDATE  products SET qauntity=qauntity-? WHERE name=$productname");
-                 $statement->execute([$orderedQuantity]);
+                 $statement=$connection->prepare("INSERT INTO  ordered_products(username,productName,quantity,total) VALUES (?,?,?,?)");
+                 $statement->execute([$username,$productname,$orderedQuantity,$subtotal]);
                  echo "success";
+                 echo $_POST['subtotal'];
             }
          }
 
@@ -116,7 +119,7 @@
             if(isset($_POST['logout'])){
                 session_start();
                 session_destroy();
-                header('login.php');
+                header('location:login.php');
             }
          }
          

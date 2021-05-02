@@ -24,17 +24,16 @@ if (mysqli_num_rows($result) > 0) {
    <img class="card-img-top" style="width:50%"src="'.$row['image'].'" alt="Card image cap">
    <div class="card-body">
    <form method="post">
-  
-    <input type="hidden" class="price"value="'.$row['productname'].'">
-     <h5 class="card-title"> PHP '.$row['price'].'</h5>
-     <input type="hidden" class="price"value="'.$row['price'].'">
+   <input type="hidden" class="subtotal" name="subtotal" >
+    <h5 class="card-title"> PHP '.$row['price'].'</h5>
+    <input type="hidden" class="price"value="'.$row['price'].'">
     <input class="form-control quantity" name="orderedQuantity" min=0 value="0"type="number" placeholder="quantity"> 
     <h5 class="mt-3">Total: <span class="total">0</span></h5>
+    <input type="hidden" name="productname" value="'.$row['productname'].'">
     <center><button type="submit" name="placeOrder"class="placeOrder btn btn-success mt-4 ">place order</button></center>
    </form>
     </div>
  </div>   ';
-    
     }
 } else {
     echo "0 results";
