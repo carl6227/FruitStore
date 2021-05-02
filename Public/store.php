@@ -116,13 +116,8 @@
         if(isset($_POST['placeOrder'])){
             $username=$_SESSION['username'];    
             $connection =$this->openConnection();
-            $statement=$connection->prepare("SELECT sum(total) FROM ordered_products WHERE username='?'");
-            $statement->execute([$username]);
-            $subtotal=$statement->fetchAll();
-            $total = $statement->rowCount();
-            $_SESSION['subtotal']=$subtotal;
-            print_r( $subtotal);
-
+            $statement=$connection->prepare("SELECT sum(total) as total FROM ordered_products WHERE username='$username'");
+            $subtotal=$statement->fetch();
         }
         }
 
