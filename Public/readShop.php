@@ -13,7 +13,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT product_id,name, price,qauntity,description,categories,image FROM products where type=0";
+$sql = "SELECT product_id,name, price,qauntity,description,categories,image FROM products where type=1";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
        
         echo '<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
        
-        <div class=" card  rounded shadow-sm border-1 border-success">
+        <div class=" card  rounded shadow-sm border-1 border-success mt-5">
             <div  id="'.$row["categories"].'" class="col-sm-4 text-light ml-1 mt-1" style="boder-radius:50px">
                 <h5 >
                    '.$row["categories"].'

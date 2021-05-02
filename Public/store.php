@@ -109,19 +109,17 @@
                  $connection =$this->openConnection();
                  $statement=$connection->prepare("INSERT INTO  ordered_products(username,productName,quantity,total) VALUES (?,?,?,?)");
                  $statement->execute([$username,$productname,$orderedQuantity,$subtotal]);
+                 echo $productname;
             }
          }
 
         public function dispSubtotal(){
         if(isset($_POST['placeOrder'])){
             $username=$_SESSION['username'];    
-            $connection =$this->openConnection();
-            $statement=$connection->prepare("SELECT sum(total) as subtotal FROM ordered_products WHERE username='?'");
-            $statement->execute([$username]);
-            $subtotal=$statement->fetchAll();
-            $total = $statement->rowCount();
-            $_SESSION['subtotal']=$subtotal;
-            print_r( $subtotal);
+            $connection =$this->openConnection(); 
+            $statement=$connection->prepare("SELECT sum(total) as total FROM ordered_products WHERE username='$username'");
+            $subtotal=$statement->fetch();
+            echo $subtotal['total'];
 
         }
         }

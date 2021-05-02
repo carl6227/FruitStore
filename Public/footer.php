@@ -145,7 +145,7 @@
     position: relative;
     top: -5px;
     margin-right: 10px;
-    color: blue;
+    color: #001a33;
     cursor: pointer
 }
 
@@ -282,7 +282,7 @@
                  <p id="detail">We create awesome code snippets that will help you in creating your own beautiful site. </p>
              </div>
              <div id="explore">
-                 <p id="txt1">Explore</p> <a class="link" href="#">Home</a> <a class="link" href="#">About</a> <a class="link" href="#">Snippet</a> <a class="link" href="#">Careers</a>
+                 <p id="txt1">Explore</p> <a class="link" href="home.php">Home</a> <a class="link" href="about.php">About</a> <a class="link" href="shop.php">Shop</a> <a class="link" href="#">Careers</a>
              </div>
              <div id="visit">
                  <p id="txt2">Visit</p>
