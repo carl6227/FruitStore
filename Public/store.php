@@ -6,7 +6,6 @@
         private $server = "mysql:host=remotemysql.com;dbname=nTXgp5BXe0";
         private $user = "nTXgp5BXe0";
         private $password = "RQwfabtfeC";
-        public $loggedin=0;
         private $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -124,6 +123,19 @@
             }
         }
         
+
+        public function addSales(){
+            if(isset($_POST['checkOut'])){
+                $username=$_SESSION['username'];
+                $total=intval($_POST['totalAmount']);    
+                $connection =$this->openConnection(); 
+                $statement=$connection->prepare("INSERT INTO  sales(username,amount) VALUES(?,?)");
+                $statement->execute([$username,$total]);
+              
+            }
+        }
+        
+      
        
          public function logout(){
             if(isset($_POST['logout'])){
