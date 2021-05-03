@@ -113,7 +113,7 @@
 
          
          public function addOrder(){
-            if(isset($_POST['placeOrder'])){
+            if(isset($_POST['placeOrder'])&& $_POST['orderedQuantity']!=0){
                  $orderedQuantity=$_POST['orderedQuantity'];
                  $productname=$_POST['productname'];
                  $username=$_SESSION['username'];
@@ -138,7 +138,7 @@
         
 
         public function addSales(){
-            if(isset($_POST['checkOut'])){
+            if(isset($_POST['checkOut'] )&& $_POST['totalAmount']!=0){
                 $username=$_SESSION['username'];
                 $total=intval($_POST['totalAmount']);    
                 $connection =$this->openConnection(); 

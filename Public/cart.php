@@ -49,7 +49,7 @@ $mystore->addSales();
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <?php 
-       if(isset($_POST['placeOrder'])){
+       if(isset($_POST['placeOrder'])&&$_POST['orderedQuantity']!=0){
       ?>     
         <script>
       
@@ -66,7 +66,7 @@ $mystore->addSales();
     <?php  } ?>  
     
     <?php 
-       if(isset($_POST['checkOut'])){
+       if(isset($_POST['checkOut'] )&& $_POST['totalAmount']!=0){
       ?>     
         <script>
       
