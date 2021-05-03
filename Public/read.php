@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
                      <input type="hidden"name="image" value="'.$row["image"].'">
                      <input type="hidden" name="productname" value="'.$row["name"].'">
                      <input type="hidden" name="price" value="'.$row["price"].'">
-                    <button type="submit" name="addCart"class="btn btn-success" style="border-radius: 50px;"><i
+                    <button type="submit" name="addCart"class="btn btn-success"id="addToCart" style="border-radius: 50px;"><i
                             class="fa fa-cart-plus" style="font-size:20px;color:whitesmoke"></i> Add to
                         Cart</button>
                 </form>

@@ -98,6 +98,19 @@
                  
             }
          }
+
+         public function countCart()
+        {
+            $username=$_SESSION['username'];
+            $connection = $this->openConnection();
+            $statement = $connection->prepare("SELECT * FROM cart where username='$username'");
+            $statement->execute();
+            $items = $statement->fetchAll();
+            $cartCounter = $statement->rowCount();
+           echo  $_SESSION['cartCount']=$cartCounter;
+            
+        }//end of get cartCounter
+
          
          public function addOrder(){
             if(isset($_POST['placeOrder'])){

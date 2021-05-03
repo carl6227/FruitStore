@@ -1,8 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])){
+$user= $_SESSION['username'];
+if ($user==""){
     header('location:login.php');
 }
+
 include_once("header.php");
 include_once("navigation.php");
 ?>
@@ -118,10 +120,25 @@ include_once("navigation.php");
     </div>
 </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-    $(document).ready()
+    <?php 
+       if(isset($_POST['addCart'])){
+      ?>     
+        <script>
+      
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Added to cart',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        
+        </script>
+
+    <?php  } ?>  
     
-    </script>
+    ?>
+    
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 

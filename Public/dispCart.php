@@ -1,4 +1,8 @@
 <?php
+$user= $_SESSION['username'];
+if ($user==""){
+    header('location:login.php');
+}
 
 $Customername=$_SESSION['username'];
 $servername = "remotemysql.com:3306";
@@ -15,7 +19,6 @@ if (!$conn) {
 
 $sql = "SELECT * FROM cart Where username='$Customername'";
 $result = mysqli_query($conn, $sql);
-
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {

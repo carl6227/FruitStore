@@ -1,5 +1,10 @@
 <?php
  session_start();
+ $user= $_SESSION['username'];
+if ($user==""){
+    header('location:login.php');
+}
+
 require_once('header.php');
 require_once('navigation.php');
 require_once('store.php');
@@ -40,7 +45,47 @@ $mystore->addSales();
         </div>
 
 </div>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <?php 
+       if(isset($_POST['placeOrder'])){
+      ?>     
+        <script>
+      
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '',
+                showConfirmButton: false,
+                timer: 1500
+            });
         
+        </script>
+
+    <?php  } ?>  
+    
+    <?php 
+       if(isset($_POST['checkOut'])){
+      ?>     
+        <script>
+      
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Checkout sucessful      ',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        
+        </script>
+
+    <?php 
+        
+    } ?> 
+    
+
+
 <?php require_once('footer.php')?>
 
 <script >

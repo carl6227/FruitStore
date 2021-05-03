@@ -1,4 +1,9 @@
 <?php
+$user= $_SESSION['username'];
+if ($user==""){
+    header('location:login.php');
+}
+
 $customername=$_SESSION['username'];
 $servername = "remotemysql.com:3306";
 $username = "nTXgp5BXe0";
@@ -23,34 +28,24 @@ if (isset($_POST['checkOut'])){
         while($row = mysqli_fetch_assoc($result)) {
            $orderedQuantity=$row['quantity'];
            $productname=$row['productName'];
-          echo $row['quantity']." ".$row['productName']."<br> ";
           $sqlUpdate = "UPDATE products SET qauntity=qauntity-$orderedQuantity where  name='$productname'";
           if ($conn->query($sqlUpdate) === TRUE) {
-            echo "Record updated successfully";
           } else {
             echo "Error updating record: " . $conn->error;
           }
           $sqlDelete="DELETE FROM ordered_products where productname='$productname'";
           if ($conn->query($sqlDelete) === TRUE) {
-            echo "Record deleted successfully";
           } else {
             echo "Error deleting record: " . $conn->error;
           }
           $sqlDeleteCart="DELETE FROM cart where productname='$productname'";
           if ($conn->query($sqlDeleteCart) === TRUE) {
-            echo "Record deleted successfully from cart";
           } else {
             echo "Error deleting record: " . $conn->error;
           } 
         }
       
-    } else {
-        echo "0 results";
     }
-    
-
-
-
 
 }
 

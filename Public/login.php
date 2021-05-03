@@ -3,6 +3,7 @@ session_start();
  $_SESSION['username']="";
  $_SESSION['productname']="";
  $_SESSION['subtotal']="";
+ $_SESSION['countCart']=0;
 require_once('store.php');
 $mystore->login();
 $mystore->signup();

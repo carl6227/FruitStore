@@ -1,4 +1,12 @@
 <?php
+$user= $_SESSION['username'];
+if ($user==""){
+    header('location:login.php');
+}
+
+    require_once('store.php');
+    $mystore->logout();
+   
     include_once("header.php");
    
 ?>
@@ -27,7 +35,7 @@
         </div>
         <a href="cart.php">
         <div id="ex4" class="ca">
-            <span class="p1 fa-stack fa-2x has-badge" data-count="15">
+            <span class="p1 fa-stack fa-2x has-badge" data-count="<?php $mystore->countCart();?>">
                 <i id="cart" class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse " data-count="4b"
                     style="color:black;font-size:20px;"></i>
             </span>
@@ -36,15 +44,14 @@
         <div class="bs-example mr-5">
             <div class="btn-group">
                 <button class="btn btn-light" style="height:24px; margin-top:-7px">
-                    <span<i style='font-size:24px' class='fas'>&#xf4fe;</i>
-                        </span>
+           
+                   <?php  echo $_SESSION['username'];?>
                 </button>
                 <button data-toggle="dropdown" class="btn btn-light dropdown-toggle" style="font-size:10px"></button>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
-    
-                    <form  method="logout">
-                    <a  href="login.php"class="dropdown-item"><i class="fa fa-sign-out" ></i></i> logout</a>
+                  
+                    <form  method="post">
+                    <button type="submit"  name="logout" class="dropdown-item"><i class="fa fa-sign-out" ></i></i> logout</a>
                     </form>
         
                 </div>

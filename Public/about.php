@@ -1,4 +1,10 @@
 <?php 
+session_start();
+$user= $_SESSION['username'];
+if ($user==""){
+    header('location:login.php');
+}
+
     include_once("navigation.php");
 ?>
 
