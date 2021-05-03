@@ -35,10 +35,10 @@ include_once("navigation.php");
                 </p>
             </div>
             <div>
-                <button type="button" class="btn text-light mb-5" style="border-radius: 50px;
+                <a type="button" href="shop.php "class="btn text-light mb-5" style="border-radius: 50px;
                 background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%);"> ALL PRODUCTS
                     <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                </button>
+                </a>
             </div>
             
         </div>
@@ -113,7 +113,10 @@ include_once("navigation.php");
 
 <hr class="mt-5">
         <div class="container mt-5">
+        <h2>Best seller Products</h2>
+        <br>
             <div class="row pb-5 mb-4">
+           
                 <?php require_once('read.php')?>
             </div>
         </div>
@@ -137,7 +140,7 @@ include_once("navigation.php");
 
     <?php  } ?>  
     
-    ?>
+    
     
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
