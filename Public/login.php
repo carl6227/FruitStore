@@ -59,9 +59,9 @@ $mystore->signup();
         <form method="POST">
         <h2>SIGN UP</h2>
         <div class="inputbox">
-          <input type="text" name="fullname" placeholder="  FULLNAME">
-          <input type="text" name="email" placeholder="  EMAIL">
-          <input type="password" name="password" placeholder="  PASSWORD">
+          <input type="text" name="fullname" placeholder="  FULLNAME" required>
+          <input type="text" name="email" placeholder="  EMAIL" required  >
+          <input type="password" name="password" placeholder="  PASSWORD" required>
         </div>
         <button type="submit" name="signup" >SIGN UP</button>
         </form>
