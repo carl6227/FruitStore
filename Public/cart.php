@@ -3,9 +3,9 @@
 require_once('header.php');
 require_once('navigation.php');
 require_once('store.php');
+require_once('updateQuantity.php');
 $mystore->addOrder();
 $mystore->addSales();
-$mystore->updateQuantity();
 ?>
 
 <div class="container-fluid">

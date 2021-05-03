@@ -117,7 +117,11 @@ include_once("navigation.php");
         </div>
     </div>
 </div>
-   
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    $(document).ready()
+    
+    </script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 
