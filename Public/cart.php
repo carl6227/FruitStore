@@ -16,9 +16,9 @@ $mystore->addSales();
 <div class="container-fluid">
 
         <div class="row">
-                <div class="col-sm-3 jumbotron">
+                <div class="col-sm-3 mt-3 jumbotron">
+                    <form method="post"> 
                         <div class="row">
-                        <form method="post"> 
                           <label for="exampleInputEmail1">Subtotal</label>
                             <div class="col-sm "> <input type="number" id="subtotal" class="form-control" value="<?php $mystore->dispSubtotal();?>" ></div>
                         </div>
@@ -28,13 +28,13 @@ $mystore->addSales();
                             <div class="col-sm"> <input type="number" id="shipping"class="form-control" value="100"></div>
                        </div>
                             <br>
-                            <div class="row">
+                        <div class="row">
                             <label for="exampleInputEmail1">Total</label>
                             <div class="col-sm"> <input type="number" id="total"class="form-control" name="totalAmount" value="0"></div>
                         </div> 
                         <br>
                         <input class="form-group btn-block btn-lg btn btn-primary"type="submit" name="checkOut" value="Check Out">
-                        </form>
+                    </form>
                 </div>
                 <div class="col-sm-9">
                         <div class="row mb-5" style=" margin-left:50px">
