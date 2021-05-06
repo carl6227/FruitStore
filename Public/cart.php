@@ -25,7 +25,7 @@ $mystore->addSales();
                         <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Shipping</label>
-                            <div class="col-sm"> <input type="number" id="shipping"class="form-control" value="100"></div>
+                            <div class="col-sm"> <input type="number" id="shipping"class="form-control" value="100" disabled ></div>
                        </div>
                             <br>
                         <div class="row">
