@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo '<div class="container">
             <div class="row  mt-5">
-             <div class="col-m-7"><img style="width:70%" src="https://file.removal.ai/preview/tmp-608f9c572439a.png"></div>
+             <div class="col-m-7"><img style="width:70%" src="https://file.removal.ai/preview/tmp-6093e35f4486c.png"></div>
              <div class="col-m-5 mr-5">
               <strong> <h1 style="position:relative;color:green;margin-left:-350px">Your Orders will</h1></strong>    
               <h1 style="position:relative;color:green; margin-left:-240px"> be deliver </h1>
