@@ -11,7 +11,7 @@ include_once("navigation.php");
 
 
 <body>
-<div class="jumbotron jumbotron-fluid"style="background-image: url('https://i.pinimg.com/736x/0b/ac/7d/0bac7d5999fab3a72a033fcbd037fc7d.jpg');background-repeat:no-repeat;background-size:cover;">
+<div class="jumbotron jumbotron-fluid"style="background-image: url('../src/img/background.jpg');background-repeat:no-repeat;background-size:cover;">
         <div class="container mr-5">
             <div class="row">
                 <div class="col-sm-2 mt-2">

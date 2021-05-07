@@ -20,7 +20,7 @@ $mystore->addSales();
                     <form method="post"> 
                         <div class="row">
                           <label for="exampleInputEmail1">Subtotal</label>
-                            <div class="col-sm "> <input type="number" id="subtotal" class="form-control" value="<?php $mystore->dispSubtotal();?>" ></div>
+                            <div class="col-sm "> <input type="number" id="subtotal" class="form-control" value="<?php $mystore->dispSubtotal();?>"disabled  ></div>
                         </div>
                         <br>
                         <div class="row">
@@ -30,10 +30,10 @@ $mystore->addSales();
                             <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Total</label>
-                            <div class="col-sm"> <input type="number" id="total"class="form-control" name="totalAmount" value="0"></div>
+                            <div class="col-sm"> <input type="number" id="total"class="form-control" name="totalAmount" value="0" readonly></div>
                         </div> 
                         <br>
-                        <input class="form-group btn-block btn-lg btn btn-primary"type="submit" name="checkOut" value="Check Out">
+                        <input class="form-group btn-block btn-lg btn btn-primary"type="submit" name="checkOut" value="Check Out"  >
                     </form>
                 </div>
                 <div class="col-sm-9">
